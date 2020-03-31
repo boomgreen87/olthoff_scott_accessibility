@@ -1,0 +1,32 @@
+{
+  "name": "olthoff_scott_accessibility",
+  "version": "1.0.0",
+  "description": "Accessibility assignment",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon app"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/boomgreen87/olthoff_scott_accessibility.git"
+  },
+  "author": "Scott Olthoff",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/boomgreen87/olthoff_scott_accessibility/issues"
+  },
+  "homepage": "https://github.com/boomgreen87/olthoff_scott_accessibility#readme",
+  "dependencies": {
+    "autoprefixer": "^9.7.5",
+    "cssnano": "^4.1.10",
+    "express": "^4.17.1",
+    "gulp": "^4.0.2",
+    "gulp-postcss": "^8.0.0",
+    "gulp-sass": "^4.0.2",
+    "hbs": "^4.1.0",
+    "mysql": "^2.18.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.2"
+  }
+}
