@@ -1,3 +1,4 @@
+// Sets up database information
 const config = {
     host: "localhost",
     port: 3306, // 8889 for mac

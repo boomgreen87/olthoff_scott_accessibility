@@ -2,7 +2,7 @@ const express = require('express');
 const path = require('path');
 const hbs = require('hbs');
 
-// set the port
+// Set the port
 const port = process.env.PORT || 3000;
 
 const app = express();
@@ -13,6 +13,7 @@ app.set('views', path.join(__dirname, 'views'));
 
 app.use('/', require('./routes/index'));
 
+// Sets error info
 app.use((req, res, next) => {
     var err = new Error("Error 404");
     err.customMessage = "Page not found";

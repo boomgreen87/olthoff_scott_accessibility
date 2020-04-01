@@ -15,21 +15,23 @@
 </head>
 
 <body>
-    <h1>Accessible Media Player</h1>
+    <h1 class="title">Accessible Media Player</h1>
 
-    {{!-- Navigation --}}
-    <nav>
-        <ul>
-            <li><a href="1" class="navLink">Movie</a></li>
-            <li><a href="2" class="navLink">TV</a></li>
-            <li><a href="3" class="navLink">Music</a></li>
-        </ul>
-    </nav>
+    <div class="inner">
+        {{!-- Navigation --}}
+        <nav class="mainNav">
+            <ul>
+                <li><a href="1" class="navLink">Movie</a></li>
+                <li><a href="2" class="navLink">TV</a></li>
+                <li><a href="3" class="navLink">Music</a></li>
+            </ul>
+        </nav>
 
-    {{!-- Dynamic Page Content --}}
-    <main>
-        {{{ body }}}
-    </main>
+        {{!-- Dynamic Page Content --}}
+        <main>
+            {{{ body }}}
+        </main>
+    </div>
 
     <script> </script>
     <script type="module" src="js/main.js"></script>

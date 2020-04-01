@@ -8,14 +8,14 @@
 
         {{!-- Media controls --}}
         <div class="controls">
+            <div class="runtime"><span class="currentTime">0:00</span> / {{media_runtime}}</div> {{!-- Shows current time of video --}}
             <button class="controlBtn {{id}} playPause" id="playPause{{id}}">Play</button>
             <button class="controlBtn {{id}} stop" id="stop{{id}}">Stop</button>
             <button class="controlBtn {{id}} rwd" id="rwd{{id}}">Rwd</button>
             <button class="controlBtn {{id}} fwd" id="fwd{{id}}">Fwd</button>
             <button class="controlBtn {{id}} volDown" id="volDown{{id}}">Vol -</button>
             <button class="controlBtn {{id}} volUp" id="volUp{{id}}">Vol +</button>
-            <button class="controlBtn {{id}} cc" id="cc{{id}}" data-state="inactive">CC</button>
-            <div class="runtime"><span class="currentTime">0:00</span> / {{media_runtime}}</div> {{!-- Shows current time of video --}}
+            <button class="controlBtn {{id}} cc" id="cc{{id}}">CC</button>
         </div>
 
         {{!-- Transcript area --}}

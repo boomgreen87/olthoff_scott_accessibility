@@ -24,7 +24,7 @@ const myVM = (() => {
             allMedia[i].classList.add('hidden');
         }
 
-        // Removes controls from media player
+        // Removes controls from media players
         for (let i = 0; i < shownMedia.length; i++) {
             shownMedia[i].removeAttribute('controls');
         }
@@ -50,6 +50,12 @@ const myVM = (() => {
                 showMedia(data);
             })
             .catch((err) => console.log(err));
+
+
+        for (let i = 0; i < navLink.length; i++) {
+            navLink[i].classList.remove('navSelected'); // Removes selected class from all nav links
+        }
+        this.classList.add('navSelected'); // Adds selected class to chosen nav link
     }
 
     // Plays/pauses media on button press
@@ -65,7 +71,7 @@ const myVM = (() => {
         }
     }
 
-    // Stops media on button press
+    // Stops media on button press (goes back to beginning of video and pauses)
     function stopMedia() {
         target = this.classList[1] - 1;
         
@@ -87,6 +93,7 @@ const myVM = (() => {
 
         shownMedia[target].currentTime += 5;
 
+        // If fast forward exceeds video length, goes back to beginning of video and pauses
         if(shownMedia[target].currentTime >= shownMedia[target].duration) {
             shownMedia[target].pause();
             shownMedia[target].currentTime = 0;
@@ -98,6 +105,7 @@ const myVM = (() => {
     function volumeDown() {
         target = this.classList[1] - 1;
 
+        // Only turns volume down if above zero
         if(shownMedia[target].volume >= 0.05) {
             shownMedia[target].volume -= 0.05;
         } else {
@@ -109,6 +117,7 @@ const myVM = (() => {
     function volumeUp() {
         target = this.classList[1] - 1;
 
+        // Only turns volume up if below 1
         if(shownMedia[target].volume <= 0.95) {
             shownMedia[target].volume += 0.05;
         } else {
@@ -116,13 +125,15 @@ const myVM = (() => {
         }
     }
 
-    // Toggles captions on button press
+    // Toggles captions on button press and opacity of CC button
     function captionToggle() {
         target = this.classList[1] - 1;
 
         if(shownMedia[target].textTracks[0].mode == 'showing') {
+            ccBtn[target].classList.remove('ccSelected');
             shownMedia[target].textTracks[0].mode = 'hidden';
         } else {
+            ccBtn[target].classList.add('ccSelected');
             shownMedia[target].textTracks[0].mode = 'showing';
         }
     }
@@ -144,22 +155,21 @@ const myVM = (() => {
     // Updates time
     function updateTime() {
         target = this.classList[1] - 1;
-        // console.log(this);
 
+        // Sets values of minutes and seconds
         let minutes = Math.floor(shownMedia[target].currentTime / 60);
         let seconds = Math.floor(shownMedia[target].currentTime - minutes * 60);
-        let minuteValue;
         let secondValue;
       
-          minuteValue = minutes;
-      
+        // Formats seconds
         if (seconds < 10) {
           secondValue = "0" + seconds;
         } else {
           secondValue = seconds;
         }
       
-        let mediaTime = minuteValue + ":" + secondValue;
+        // Combines the minutes and seconds and updates the timer
+        let mediaTime = minutes + ":" + secondValue;
         playTime[target].textContent = mediaTime;
     }
 
