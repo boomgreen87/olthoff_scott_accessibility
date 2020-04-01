@@ -1,23 +1,29 @@
 {{#each media}}
     <div class="media hidden" id="content{{id}}">
+        {{!-- Displays the selected media --}}
         {{{media_code}}}
+
+        {{!-- Media name --}}
         <h2>{{media_name}}</h2>
 
+        {{!-- Media controls --}}
         <div class="controls">
-            <button class="controlBtn" id="playpause{{id}}">Play</button>
-            <button class="controlBtn" id="stop{{id}}">Stop</button>
-            <button class="controlBtn" id="rwd{{id}}">Rwd</button>
-            <button class="controlBtn" id="fwd{{id}}">Fwd</button>
-            <button class="controlBtn" id="volDown{{id}}">Vol -</button>
-            <button class="controlBtn" id="volUp{{id}}">Vol +</button>
-            <button class="controlBtn" id="cc{{id}}">CC</button>
-            <div class="runtime">0:00 / {{media_runtime}}</div>
+            <button class="controlBtn {{id}} playPause" id="playPause{{id}}">Play</button>
+            <button class="controlBtn {{id}} stop" id="stop{{id}}">Stop</button>
+            <button class="controlBtn {{id}} rwd" id="rwd{{id}}">Rwd</button>
+            <button class="controlBtn {{id}} fwd" id="fwd{{id}}">Fwd</button>
+            <button class="controlBtn {{id}} volDown" id="volDown{{id}}">Vol -</button>
+            <button class="controlBtn {{id}} volUp" id="volUp{{id}}">Vol +</button>
+            <button class="controlBtn {{id}} cc" id="cc{{id}}" data-state="inactive">CC</button>
+            <div class="runtime"><span class="currentTime">0:00</span> / {{media_runtime}}</div> {{!-- Shows current time of video --}}
         </div>
 
+        {{!-- Transcript area --}}
         <div class="transcriptArea">
-            <button class="transcriptBtn">View {{media_text_type}}</button>
+            {{!-- Show/hide transcript button --}}
+            <button class="transcriptBtn {{id}}"><span class="transcriptBtnText">Show</span> {{media_text_type}}</button>
 
-            <div class="transcript"> {{{media_transcript}}} </div>
+            <div class="transcript hidden"> {{{media_transcript}}} </div>
         </div>
     </div>
 {{/each}}
