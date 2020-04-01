@@ -1,11 +1,23 @@
-<div>
-    <video controls>
-        <source src="video/he-man.mp4" type="video/mp4">
-        <track kind="subtitles" src="captions/he-man.vtt" srclang="en">
-    </video>
+{{#each media}}
+    <div class="media hidden" id="content{{id}}">
+        {{{media_code}}}
+        <h2>{{media_name}}</h2>
 
-    <video controls>
-        <source src="video/airplane.mp4" type="video/mp4">
-        <track kind="subtitles" src="captions/airplane.vtt" srclang="en">
-    </video>
-</div>
+        <div class="controls">
+            <button class="controlBtn" id="playpause{{id}}">Play</button>
+            <button class="controlBtn" id="stop{{id}}">Stop</button>
+            <button class="controlBtn" id="rwd{{id}}">Rwd</button>
+            <button class="controlBtn" id="fwd{{id}}">Fwd</button>
+            <button class="controlBtn" id="volDown{{id}}">Vol -</button>
+            <button class="controlBtn" id="volUp{{id}}">Vol +</button>
+            <button class="controlBtn" id="cc{{id}}">CC</button>
+            <div class="runtime">0:00 / {{media_runtime}}</div>
+        </div>
+
+        <div class="transcriptArea">
+            <button class="transcriptBtn">View {{media_text_type}}</button>
+
+            <div class="transcript"> {{{media_transcript}}} </div>
+        </div>
+    </div>
+{{/each}}
