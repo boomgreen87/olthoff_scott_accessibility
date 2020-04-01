@@ -1,6 +1,7 @@
 const config = require("../config");
 const sql = require('mysql');
 
+// Creates connection to database
 const connect = sql.createConnection({
     host: config.host,
     port: config.port,
